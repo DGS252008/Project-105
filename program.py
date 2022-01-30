@@ -6,32 +6,29 @@ with open("data.csv", newline="") as f:
     file_data = list(reader)
 
 file_data.pop(0)
-data = file_data[0]
-total = 0
+#new code
+data=[]
+total_marks = 0
+for i in range(len(file_data)):
+    num = file_data[i][0]
+    data.append(int(num))
+    total_marks += float(file_data[i][0])
 
-print(data)
+total_entries = len(data)
 
-for integers in file_data:
-    total += float(integers[1])
+mean = total_marks/total_entries
 
-total = 0
-n = len(file_data)
-
-mean = total/n
-
-squaredlist = []
-for number in file_data:
-    a = float(number) - float(mean)
-    print(a)
-    a = a**2 
-    squaredlist.append(a)
+squared_list = []
+for number in data:
+    a = int(number) - mean
+    a = a**2
+    squared_list.append(a)
 
 sum = 0
-for i in squaredlist:
-    sum = sum+i
+for i in squared_list:
+    sum = sum+1
 
-result = sum/n-1
+result = sum/(len(data)-1)
 
-Stdvtn = math.sqrt(result)
-
-print(Stdvtn)
+std_dev = math.sqrt(result)
+print(std_dev)
