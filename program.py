@@ -26,7 +26,7 @@ for number in data:
 
 sum = 0
 for i in squared_list:
-    sum = sum+1
+    sum = sum+i
 
 result = sum/(len(data)-1)
 
